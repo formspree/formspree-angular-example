@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+/** Variables **/
+:root {
+  --color-background: #cbd5e1;
+  --color-background-alt: #64748b;
+  --color-border-active: #64748b;
+  --color-border-default: #94a3b8;
+  --color-highlight: #cbd5e1;
+  --color-primary: #1e293b;
+  --color-primary-active: #090f1d;
+  --color-text-default: #0f172a;
+  --color-text-muted: #475569;
+  --font-family-body: "Inter", sans-serif;
+}
+
+/** Base **/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-family-body);
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-size: 100%;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/** Components **/
+.fs-form {
+  display: grid;
+  row-gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.fs-field {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.375rem;
+}
+
+.fs-label {
+  color: var(--color-text-default);
+  display: block;
+  font-family: var(--font-family-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+}
+
+.fs-description {
+  color: var(--color-text-muted);
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.fs-button-group {
+  display: flex;
+  flex-direction: row-reverse;
+  column-gap: 1.5rem;
+}
+
+.fs-button {
+  background-color: var(--color-primary);
+  border-radius: 0.375rem;
+  color: white;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1rem;
+  padding: 1rem 2rem;
+  transition-duration: 200ms;
+  transition-property: background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fs-button:hover {
+  background-color: var(--color-primary-active);
+}
+
+.fs-button:focus-visible {
+  background-color: var(--color-primary-active);
+  outline: 3px solid var(--color-highlight);
+}
+
+.fs-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.fs-input {
+  appearance: none;
+  border-radius: 0.375rem;
+  border-width: 0;
+  box-shadow: var(--color-border-default) 0 0 0 1px inset;
+  color: var(--color-text-default);
+  font-size: 1rem;
+  height: 2.5rem;
+  line-height: 1.5rem;
+  outline: none;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.fs-input:focus-visible {
+  box-shadow: var(--color-border-active) 0 0 0 1.5px inset;
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 0;
+}
+
+.fs-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.fs-textarea {
+  appearance: none;
+  border-radius: 0.375rem;
+  border-width: 0;
+  box-shadow: var(--color-border-default) 0 0 0 1px inset;
+  color: var(--color-text-default);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  min-height: 6rem;
+  outline: none;
+  padding: 0.75rem;
+  resize: vertical;
+}
+
+.fs-textarea:focus-visible {
+  box-shadow: var(--color-border-active) 0 0 0 1.5px inset;
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 0;
+}
+
+.fs-textarea::placeholder {
+  color: var(--color-text-muted);
+}

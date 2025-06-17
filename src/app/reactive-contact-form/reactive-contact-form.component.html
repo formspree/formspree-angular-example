@@ -1,0 +1,33 @@
+<h1 style="text-align: center; margin-top: 16px">Reactive form</h1>
+<form [formGroup]="form" class="fs-form" (ngSubmit)="onSubmit()" novalidate>
+  <div class="fs-field">
+    <label class="fs-label" for="email">Email</label>
+    <input 
+      class="fs-input" 
+      id="email" 
+      name="email" 
+      formControlName="email" 
+      required 
+      [class.ng-invalid]="form.get('email')?.invalid && (form.get('email')?.touched || form.get('email')?.dirty)"
+    />
+    <div *ngIf="form.get('email')?.invalid && (form.get('email')?.touched || form.get('email')?.dirty)" class="fs-description" style="color: #e53e3e;">
+      <span *ngIf="form.get('email')?.errors?.['required']">Email is required.</span>
+      <span *ngIf="form.get('email')?.errors?.['email']">Please enter a valid email.</span>
+    </div>
+  </div>
+  <div class="fs-field">
+    <label class="fs-label" for="message">Message</label>
+    <textarea class="fs-textarea" id="message" name="message" formControlName="message"></textarea>
+  </div>
+  <div class="fs-button-group">
+    <button class="fs-button" type="submit" [disabled]="form.invalid || submitting">
+      {{ submitting ? 'Submitting...' : 'Submit' }}
+    </button>
+  </div>
+  <div *ngIf="submitted" class="fs-description" style="color: #16a34a; margin-top: 1rem;">
+    Thank you! Your submission has been received.
+  </div>
+  <div *ngIf="error" class="fs-description" style="color: #e53e3e; margin-top: 1rem;">
+    {{ error }}
+  </div>
+</form>
